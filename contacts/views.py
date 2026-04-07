@@ -17,15 +17,16 @@ class ContactCreateView(CreateView):
     model = Contacts
     template_name = 'contacts/contact_form.html'
     fields = ['name', 'email', 'phone', 'message']
-    success_url = '/contacts/'
+    success_url = '/' 
+
 
 class ContactUpdateView(UpdateView):
     model = Contacts
     template_name = 'contacts/contact_form.html'
     fields = ['name', 'email', 'phone', 'message']
-    success_url = '/contacts/'
+    success_url = '/'   
 
 class ContactDeleteView(DeleteView):
     model = Contacts
     template_name = 'contacts/contact_confirm_delete.html'
-    success_url = '/contacts/'
+    success_url = '/'
