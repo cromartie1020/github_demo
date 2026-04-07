@@ -1,0 +1,34 @@
+    {% extends 'base.html' %}
+    {% load static %}
+    {% block title %}Contact List{% endblock %}
+
+    {% block content %}
+    <h1>Contact List</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Message</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in contacts %}
+                <tr>
+                    <td>{{ contact.name }}</td>
+                    <td>{{ contact.email }}</td>
+                    <td>{{ contact.phone }}</td>
+                    <td>{{ contact.message }}</td>
+                    <td>
+                        <a href="{% url 'contact_detail' contact.pk %}" class="btn btn-info">View</a>
+                        <a href="{% url 'contact_edit' contact.pk %}" class="btn btn-warning">Edit</a>
+                        <a href="{% url 'contact_delete' contact.pk %}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'contact_create' %}" class="btn btn-primary">Add New Contact</a>    
+    {% endblock %}
